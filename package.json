@@ -1,0 +1,18 @@
+{
+  "name": "biblioteca",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gustavo Souza",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4"
+  }
+}
