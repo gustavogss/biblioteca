@@ -2,11 +2,11 @@
 Api REST de uma aplicação CRUD para biblioteca de livros
 
 ## Tecnologias e Ferramentas utilizadas :robot:
-- [VSCode]()
-- [NodeJs]()
-- [MongoDB]()
-- [Moogose]()
-- [Insomnia]()
+- [VSCode](https://code.visualstudio.com/)
+- [NodeJs](https://nodejs.org/en/)
+- [MongoDB Atlas](https://cloud.mongodb.com/)
+- [Moogose](https://mongoosejs.com/)
+- [Insomnia](https://insomnia.rest/download)
 
 ## Como utilizar :runner:
 - Clonar o projeto
