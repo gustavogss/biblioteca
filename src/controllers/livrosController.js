@@ -2,21 +2,27 @@ const livros = require("../models/Livro");
 
 class livroController {
   static listLivros = (req, res) => {
-    livros.find((error, livros) => {
-      res.status(200).json(livros);
-    });
+    livros
+      .find()
+      .populate("autor")
+      .exec((error, livros) => {
+        res.status(200).json(livros);
+      });
   };
   static listLivroId = (req, res) => {
     const id = req.params.id;
-    livros.findById(id, (error, livros) => {
-      if (error) {
-        res
-          .status(400)
-          .send({ message: `${error.message} - Id do livro não localizado` });
-      } else {
-        res.status(200).send(livros);
-      }
-    });
+    livros
+      .findById(id)
+      .populate("autor", "name")
+      .exec((error, livros) => {
+        if (error) {
+          res
+            .status(400)
+            .send({ message: `${error.message} - Id do livro não localizado` });
+        } else {
+          res.status(200).send(livros);
+        }
+      });
   };
   static cadLivros = (req, res) => {
     let livro = new livros(req.body);
