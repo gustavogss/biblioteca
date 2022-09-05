@@ -2,6 +2,7 @@ const express = require("express");
 
 const db = require('./config/dbConnect');
 const livros = require('./models/Livro');
+const routes = require('./routes/index');
 
 db.on("error", console.log.bind(console, 'Erro de conexão'));
 db.once("open", ()=>{
@@ -11,17 +12,12 @@ console.log('Conexão com o banco MongoDB feita com sucesso');
 const app = express();
 app.use(express.json());
 
+routes(app);
+
 app.get("/livros/:id", (req, res) => {
   let index = buscaLivro(req.params.id);
   res.json(livros[index]);
 });
-
-app.get("/livros", (req, res) => {
-  livros.find((error, livros)=>{
-    res.status(200).json(livros);
-  });  
-});
-
 
 app.post("/livros", (req, res) => {
   livros.push(req.body);
