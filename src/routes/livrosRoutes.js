@@ -3,6 +3,8 @@ const livroController = require('../controllers/livrosController');
 
 const router = express.Router();
 
-router.get('/livros', livroController.listLivros);
+router
+.get('/livros', livroController.listLivros)
+.post('/livros', livroController.cadLivros)
 
 module.exports = router;
